@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/middlewares/tokenmid.ts","./src/models/content.ts","./src/models/token.ts","./src/models/user.ts","./src/routes/contentroutes.ts","./src/routes/userroutes.ts"],"version":"5.7.3"}

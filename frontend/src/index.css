@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn-primary {
+      @apply bg-primary-purple text-white px-6 py-2 rounded-lg hover:bg-primary-dark transition-colors duration-300;
+    }
+  
+    .btn-outline {
+      @apply border-2 border-primary-purple text-primary-purple px-6 py-2 rounded-lg hover:bg-primary-purple hover:text-white transition-colors duration-300;
+    }
+  
+    .feature-card {
+      @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-purple-50 transition-all duration-300 cursor-pointer;
+    }
+  }
