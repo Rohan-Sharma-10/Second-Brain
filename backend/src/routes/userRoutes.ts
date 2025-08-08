@@ -110,7 +110,7 @@ router.post("/login", async (req: Request, res: Response) => {
 });
 
 
-router.post("/refreshToken", async (req, res) => {
+router.post("/refreshToken", async (req: Request, res: Response) => {
   const refreshToken = req.cookies.refreshToken;
   if (!refreshToken) {
     return void res.status(401).json({
@@ -132,7 +132,7 @@ router.post("/refreshToken", async (req, res) => {
   res.json({ accessToken });
 });
 
-router.post("/logout", (req: Request, res: Response) => {
+router.post("/logout", (res: Response) => {
   res.clearCookie("refreshToken", { path: "/api/auth/refresh" }); // or wherever you are storing it
   res.status(200).json({ message: "Logged out successfully" });
 });
