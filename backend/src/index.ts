@@ -9,7 +9,7 @@ import contentRoutes from "./routes/contentRoutes";
 dotenv.config();
 const app = express();
 app.use(cors({
-    origin: "second-brain-993qp9yvm-rohan-sharmas-projects-59e8c348.vercel.app", // Change this to your frontend URL
+    origin: "https://second-brain-993qp9yvm-rohan-sharmas-projects-59e8c348.vercel.app", // Change this to your frontend URL
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true // If you're using cookies or authentication headers
   }));
