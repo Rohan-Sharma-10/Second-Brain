@@ -9,7 +9,7 @@ import contentRoutes from "./routes/contentRoutes";
 dotenv.config();
 const app = express();
 app.use(cors({
-    origin: "https://second-brain-omega-two.vercel.app/",
+    origin: "https://second-brain-omega-two.vercel.app",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true 
   }));
