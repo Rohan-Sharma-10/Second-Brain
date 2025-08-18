@@ -14,9 +14,13 @@ app.use(cors({
     credentials: true 
   }));
 app.use(express.json());
+app.get("/health", (req, res) => {
+  res.status(200).json("Backend is Running.");
+});
 app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/content", contentRoutes);
+
 
 const DB_URL = process.env.DB_URL as string;
 const connectDB = async () => {
