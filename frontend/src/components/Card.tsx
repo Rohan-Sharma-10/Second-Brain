@@ -61,33 +61,35 @@ export function Card(props: CardProps) {
     
       
 
-    return <div>
-        <div className="p-4 bg-white rounded-md border-gray-200 max-w-72 min-w-72 border min-h-48">
-            <div className="flex justify-between">
-                <div className="flex items-center text-md pb-2">
-                    <div className="text-gray-500 pr-2">
-                    {props.type === "Youtube" && <YoutubeIcon />}
-                    {props.type === "Twitter" && <TwitterIcon />}
-                    {props.type === "Document" && <DocumentIcon />}
-                    {props.type === "Link" && <LinkIcon />}
-                </div>
-                {props.title}
-                </div>
+    return (
+        <div className="w-full">
+            <div className="p-3 sm:p-4 bg-white rounded-md border-gray-200 w-full border min-h-48 flex flex-col">
+                <div className="flex justify-between items-start mb-3">
+                    <div className="flex items-center text-sm sm:text-md pb-2 flex-1 min-w-0">
+                        <div className="text-gray-500 pr-2 flex-shrink-0">
+                            {props.type === "Youtube" && <YoutubeIcon />}
+                            {props.type === "Twitter" && <TwitterIcon />}
+                            {props.type === "Document" && <DocumentIcon />}
+                            {props.type === "Link" && <LinkIcon />}
+                        </div>
+                        <span className="truncate">{props.title}</span>
+                    </div>
 
-                <div className="flex items-center">
-                    <div className="pr-2 pb-2 text-gray-500">
-                        <a href={props.link} target="_blank" >
-                            <ExternalLink />    
-                        </a>   
-                    </div>
-                    <div className="text-gray-500 pb-2" onClick={props.onDelete}>
-                    <DeleteIcon />
+                    <div className="flex items-center flex-shrink-0 ml-2">
+                        <div className="pr-2 pb-2 text-gray-500">
+                            <a href={props.link} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink />    
+                            </a>   
+                        </div>
+                        <div className="text-gray-500 pb-2 cursor-pointer" onClick={props.onDelete}>
+                            <DeleteIcon />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div>
-                {props.type === "Youtube" &&(
-                        <div className="relative w-100 h-0 pb-[56.25%] overflow-hidden ">
+                
+                <div className="flex-1">
+                    {props.type === "Youtube" && (
+                        <div className="relative w-full h-0 pb-[56.25%] overflow-hidden">
                             <iframe
                                 className="absolute top-0 left-0 w-full h-full rounded-md"
                                 src={`https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0&fs=1`}
@@ -104,22 +106,24 @@ export function Card(props: CardProps) {
                                 className="absolute top-0 left-0 w-full h-full rounded-md"
                                 src={props.link}
                                 allow="autoplay; encrypted-media"
+                                title="document"
                             />
                         </div>
                     )}
                     {props.type === "Link" && (
-                        <div className="w-full overflow-x-auto">
+                        <div className="w-full overflow-hidden">
                             <a
                                 href={props.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-blue-500 hover:underline whitespace-nowrap"
+                                className="text-blue-500 hover:underline break-all text-sm"
                             >
                                 {props.link}
                             </a>
                         </div>
                     )}
+                </div>
             </div>
         </div>
-    </div>
+    )
 }
